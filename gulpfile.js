@@ -1,19 +1,27 @@
 var gulp = require('gulp'),
-    jade = require('jade'),
-    gJade = require('gulp-jade'),
+    babel = require('gulp-babel'),
+    browserify = require('browserify'),
     sass = require('gulp-sass');
 
 gulp.task('default', function() {
   console.log("works");
 });
 
-gulp.task('jade',function() {
-  gulp.src('./app/views/**/*.jade')
-    .pipe(gJade({
-      jade: jade,
-      pretty: true
+gulp.task('babel',function() {
+  return gulp.src(['app/*.js','app/js/**/*.js'])
+		.pipe(babel({
+			presets: ['es2015']
+		}))
+		.pipe(gulp.dest('public/js'));
+});
+
+gulp.task('browserify', function() {
+  return gulp.src('public/js/app.js')
+    .pipe(browserify().bundle(function(a,body) {
+      return body
     }))
-    .pipe(gulp.dest('./public/'))
+    .pipe(gulp.dest('public/js'))
+
 });
 
 gulp.task('sass',function() {
