@@ -2,18 +2,17 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="public/css/app.css" media="screen" title="no title" charset="utf-8">
-  <script src="./public/js/index.js"></script>
   <title>Document</title>
 </head>
 <body>
   <a href="/">Index</a>
   <a href="#/test">test</a>
-  <index>
+  <div data-id="zg-index">
     <div class="">
       {{ title }}
     </div>
-  </index>
-  <page1></page1>
-  <page2></page2>
+  </div>
+  <div data-id="zg-page1"></div>
+  <script src="./public/js/index.js"></script>
 </body>
 </html>
