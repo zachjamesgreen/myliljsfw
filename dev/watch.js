@@ -12,13 +12,13 @@ var watcher = chokidar.watch(['app/sass', 'app/js'], {
   // ignored: /[\/\\]\./,
   persistent: true
 });
-var watchServer = chokidar.watch('app/app.js', {
+var watchServer = chokidar.watch('app.js', {
   // ignored: /[\/\\]\./,
   persistent: true
 });
 
 watchServer.on('change', function(path, stat) {
-  cp.exec('node_modules/.bin/babel -o app.js app/app.js', function(err, stdout, stderr) {
+  cp.exec('node_modules/.bin/babel -o index.js app.js', function(err, stdout, stderr) {
     if (stderr) {
       n.notify({
         'title': 'Server',
@@ -27,7 +27,7 @@ watchServer.on('change', function(path, stat) {
     } else {
       n.notify({
         'title': 'Server',
-        'message': "Server restarted"
+        'message': "Restart Server"
       });
     }
   })

@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "jade": "^1.11.0",
     "node-notifier": "^4.4.0"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "build:js": "npm run build:babel && npm run build:browserify",
     "build:remove": "rm -rf dist/js/* public/css/*",
     "build:css": "sassc app/sass/app.scss public/css/app.css",
+    "build:jade": "jade app/views",
     "watch": "node dev/watch.js"
   },
   "author": "",

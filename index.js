@@ -1,6 +1,7 @@
 'use strict';
 
-import {Router} from './dist/js/lib/router.js';
+var _router = require('./dist/js/lib/router.js');
+
 var http = require('http');
 var server = http.createServer();
 var hostname = '127.0.0.1';
@@ -11,9 +12,9 @@ var port = 1337;
 // keep it small
 
 server.on('request', function (req, res) {
-  var r = new Router(req);
+  var r = new _router.Router(req);
   console.log(r.render());
-  res.end('OK')
+  res.end('OK');
 });
 
 server.listen(port, hostname, function () {
